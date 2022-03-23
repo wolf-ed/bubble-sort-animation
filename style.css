@@ -4,6 +4,11 @@
   font-size: 18px;
 }
 
+:root {
+  /* Theme colors */
+  --box-height-width: 215px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -16,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
 }
 
 .title {
@@ -49,8 +54,10 @@ button:hover {
 .main-container {
   position: relative;
   background-color: slategray;
-  width: 215px;
-  height: 215px;
+  width: var(--box-height-width);
+  height: var(--box-height-width);
+  min-width: var(--box-height-width);
+  min-height: var(--box-height-width);
   border-radius: 10px;
   box-shadow: inset 5px 5px 18px 5px rgba(0, 0, 0, 0.24);
   transition: all 1s ease;
@@ -93,7 +100,10 @@ a.gitLink:hover {
 }
 
 @media (max-width: 750px) {
-  /* .btns-box {
-    flex-direction: column;
-  } */
+  .section {
+    height: fit-content;
+  }
+  .footer {
+    margin: 3rem auto;
+  }
 }

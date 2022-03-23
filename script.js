@@ -2,8 +2,10 @@
 const randomizeBTN = document.getElementById('randomize');
 const sortBTN = document.getElementById('sort');
 
-
 let columns = document.querySelectorAll('.column')
+
+
+
 const randomHeights = (arr) => {
   let randomNumber = [];
 
@@ -51,7 +53,7 @@ const shorterBubbleSort = arr => {
 const randomize = () => {
   const random = randomHeights(columns)
   for (let i = 0; i < 20; i++) {
-    columns[i].style.left = `${+random[i]}px`
+    columns[i].style.height = `${+random[i]}px`
   }
 }
 
@@ -67,30 +69,29 @@ const sortColumns = async () => {
 
   const toggleColumns = async (col1, col2) => {
 
-    let holderLeft = col1.style.left
-    col1.style.left = col2.style.left
-    col2.style.left = holderLeft
-
+    let heightHolder = col1.style.height
+    col1.style.height = col2.style.height
+    col2.style.height = heightHolder
   }
 
   for (let i = columns.length; i > 0; i--) {
 
     noSwaps = true;
     for (let j = 0; j < i - 1; j++) {
+      columns[j + 1].style.backgroundColor = 'white';
+      columns[j].style.backgroundColor = 'black';
+      if (columns[j].offsetHeight > columns[j + 1].offsetHeight) {
 
-      if (columns[j].offsetLeft > columns[j + 1].offsetLeft) {
 
-        columns[j + 1].style.backgroundColor = 'white';
-        columns[j].style.backgroundColor = 'black';
         await waitforme(100);
-        columns[j].style.backgroundColor = 'aqua';
-        columns[j + 1].style.backgroundColor = 'aqua';
+
 
         toggleColumns(columns[j], columns[j + 1])
 
         noSwaps = false;
       }
-
+      columns[j].style.backgroundColor = 'aqua';
+      columns[j + 1].style.backgroundColor = 'aqua';
     }
     if (noSwaps) break;
   }

@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  background-color: black;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.79);
+  margin: 1rem;
+  padding: 0.6rem;
+  border-radius: 10px;
+  width: 20rem;
+}
+input::placeholder {
+  letter-spacing: 2px;
+}
+input:focus {
+  background-color: rgb(255, 255, 255);
+
+  outline: none;
+}
+
+.title {
+  font-size: 3rem;
+  color: white;
+}
+
+button {
+  padding: 10px;
+  background-color: steelblue;
+  border-radius: 10px;
+  margin: 1rem;
+  width: 10rem;
+  color: white;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(82, 165, 234);
+}
+
+.output {
+  width: 20rem;
+  background-color: azure;
+  margin: 1rem;
+  min-height: 10rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.output h2 {
+  margin: 1rem;
+}
+
+#output {
+  font-size: 1.5rem;
+}
+
+.main-container {
+  position: relative;
+  background-color: slategray;
+  width: 215px;
+  height: 215px;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 18px 5px rgba(0, 0, 0, 0.24);
+  transition: all 1s ease;
+}
+
+.column {
+  background-color: aqua;
+  position: absolute;
+  height: 10rem;
+  width: 5px;
+  /* transition: height 1s ease; */
+  /* transition: left 100ms ease; */
+
+  /* transition: 0.2ms all ease; */
+}

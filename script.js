@@ -81,15 +81,16 @@ const sortColumns = async () => {
       if (columns[j].offsetLeft > columns[j + 1].offsetLeft) {
 
         columns[j + 1].style.backgroundColor = 'white';
-        columns[j].style.backgroundColor = 'black'
+        columns[j].style.backgroundColor = 'black';
         await waitforme(100);
-        columns[j].style.backgroundColor = 'aqua'
+        columns[j].style.backgroundColor = 'aqua';
         columns[j + 1].style.backgroundColor = 'aqua';
 
         toggleColumns(columns[j], columns[j + 1])
 
         noSwaps = false;
       }
+
     }
     if (noSwaps) break;
   }

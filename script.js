@@ -79,6 +79,7 @@ const sortColumns = async () => {
     for (let j = 0; j < i - 1; j++) {
 
       if (columns[j].offsetLeft > columns[j + 1].offsetLeft) {
+
         columns[j + 1].style.backgroundColor = 'white';
         columns[j].style.backgroundColor = 'black'
         await waitforme(100);
@@ -94,17 +95,6 @@ const sortColumns = async () => {
   }
 
 }
-const toggleColumns = (col1, col2) => {
-  let holder = col1.style.left
-  col1.style.left = col2.style.left
-  col2.style.left = holder
-}
 
-console.log(columns[10].offsetLeft)
 randomizeBTN.addEventListener('click', randomize)
-sortBTN.addEventListener('click', async function () {
-  sortColumns
-})
-sortBTN.addEventListener('click',
-  sortColumns
-)
+sortBTN.addEventListener('click', sortColumns)

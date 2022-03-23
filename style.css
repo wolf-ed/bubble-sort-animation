@@ -33,6 +33,12 @@ input:focus {
   color: white;
 }
 
+.btns-box {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto;
+}
+
 button {
   padding: 10px;
   background-color: steelblue;
@@ -88,4 +94,10 @@ button:hover {
   /* transition: left 100ms ease; */
 
   /* transition: 0.2ms all ease; */
+}
+
+@media (max-width: 750px) {
+  .btns-box {
+    flex-direction: column;
+  }
 }

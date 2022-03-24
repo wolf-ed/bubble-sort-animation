@@ -47,8 +47,8 @@ button {
 }
 
 button:hover {
-  cursor: pointer;
   background-color: rgb(82, 165, 234);
+  cursor: pointer;
 }
 
 .main-container {

@@ -39,11 +39,21 @@ function setTimeOutCustom(milisec) {
   })
 }
 
+const disableBTN = btnElement => {
+  btnElement.disabled = true;
+  btnElement.style.backgroundColor = 'rgb(87, 87, 87)';
+}
+
+const restoreBTN = btnElement => {
+  btnElement.disabled = false;
+  btnElement.style.backgroundColor = 'steelblue';
+}
+
 const sortColumns = async () => {
   let noSwaps;
   preventInterruption = true;
-  randomizeBTN.disabled = true;
-  randomizeBTN.style.backgroundColor = 'rgb(87, 87, 87)';
+  disableBTN(randomizeBTN);
+  disableBTN(sortBTN);
 
   const toggleColumns = async (col1, col2) => {
 
@@ -72,10 +82,9 @@ const sortColumns = async () => {
     if (noSwaps) break;
   }
 
+  restoreBTN(randomizeBTN);
+  restoreBTN(sortBTN);
   preventInterruption = false;
-  randomizeBTN.disabled = false;
-  randomizeBTN.style.backgroundColor = 'steelblue';
-
 }
 
 randomizeBTN.addEventListener('click', randomize)

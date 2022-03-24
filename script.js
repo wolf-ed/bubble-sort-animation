@@ -2,6 +2,8 @@ const randomizeBTN = document.getElementById('randomize');
 const sortBTN = document.getElementById('sort');
 let columns = document.querySelectorAll('.column')
 
+let preventInterruption = false;
+
 const randomNumbers = (number) => {
   let randomNumber = [];
 
@@ -22,6 +24,9 @@ const randomNumbers = (number) => {
 }
 
 const randomize = () => {
+  if (preventInterruption) {
+    return
+  }
   const random = randomNumbers(columns.length)
   for (let i = 0; i < 20; i++) {
     columns[i].style.height = `${+random[i] * 10}px`
@@ -36,6 +41,9 @@ function setTimeOutCustom(milisec) {
 
 const sortColumns = async () => {
   let noSwaps;
+  preventInterruption = true;
+  randomizeBTN.disabled = true;
+  randomizeBTN.style.backgroundColor = 'rgb(87, 87, 87)';
 
   const toggleColumns = async (col1, col2) => {
 
@@ -63,6 +71,10 @@ const sortColumns = async () => {
     }
     if (noSwaps) break;
   }
+
+  preventInterruption = false;
+  randomizeBTN.disabled = false;
+  randomizeBTN.style.backgroundColor = 'steelblue';
 
 }
 

@@ -1,20 +1,16 @@
-
 const randomizeBTN = document.getElementById('randomize');
 const sortBTN = document.getElementById('sort');
-
 let columns = document.querySelectorAll('.column')
 
-
-
-const randomHeights = (arr) => {
+const randomNumbers = (number) => {
   let randomNumber = [];
 
   let compare = (arr, num) => {
     return arr.some(numb => num === numb)
   }
 
-  for (let i = 0; i < arr.length; i++) {
-    let newValue = (Math.floor(Math.random() * arr.length + 1)) * 10;
+  for (let i = 0; i < number; i++) {
+    let newValue = (Math.floor(Math.random() * number + 1));
     if (compare(randomNumber, newValue) || newValue === 0) {
       i--
     } else {
@@ -25,44 +21,18 @@ const randomHeights = (arr) => {
   return randomNumber
 }
 
-
-
-
-
-
-
-const shorterBubbleSort = arr => {
-  let noSwaps;
-  const swap = (arr, first, second) => {
-    [arr[first], arr[second]] = [arr[second], arr[first]]
-  }
-  for (let i = arr.length; i > 0; i--) {
-    noSwaps = true;
-    for (let j = 0; j < i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(arr, j, j + 1)
-        noSwaps = false;
-      }
-    }
-    if (noSwaps) break;
-  }
-  return arr
-}
-
-
 const randomize = () => {
-  const random = randomHeights(columns)
+  const random = randomNumbers(columns.length)
   for (let i = 0; i < 20; i++) {
-    columns[i].style.height = `${+random[i]}px`
+    columns[i].style.height = `${+random[i] * 10}px`
   }
 }
 
-function waitforme(milisec) {
+function setTimeOutCustom(milisec) {
   return new Promise(resolve => {
     setTimeout(() => { resolve('') }, milisec);
   })
 }
-
 
 const sortColumns = async () => {
   let noSwaps;
@@ -82,9 +52,7 @@ const sortColumns = async () => {
       columns[j].style.backgroundColor = 'black';
       if (columns[j].offsetHeight > columns[j + 1].offsetHeight) {
 
-
-        await waitforme(100);
-
+        await setTimeOutCustom(100);
 
         toggleColumns(columns[j], columns[j + 1])
 
